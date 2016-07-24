@@ -87,7 +87,7 @@ class AccountController extends Controller
 
         } else {
 
-            $httpBodyLogging = [
+            $httpLoggingFailed = [
                 'opLoggingRq' => [
                     "operationName" => "opRegisterAccount",
 		            "completion_status" => "businessError",
@@ -100,7 +100,7 @@ class AccountController extends Controller
                 ]
             ];
 
-            $this->loggingInterfaceService->requestLoggingService($httpHeaders, $httpBodyLogging, 'POST', 'SYNC');
+            $this->loggingInterfaceService->requestLoggingService($httpHeaders, $httpLoggingFailed, 'POST', 'SYNC');
 
             return response()->json(['opRegisterRs'=> ['status' => 'businessError',
                 'responseCode' => 'bizzErr_already_reg',
