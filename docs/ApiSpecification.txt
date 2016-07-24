@@ -1,0 +1,83 @@
+Account Services
+http://localhost:8181/AccountServices/opRegister
+http://localhost:8181/testHttp
+Request
+{
+  "opRegisterRq": {
+    "name":"John", 
+    "email":"pradhanywidityan23@gmail.com", 
+    "phone":"1234", 
+    "occupation":"programmer"
+  }
+}
+
+Response
+{
+    "opRegisterRs": {
+        "status": "success",
+        "responseCode": "success_registration",
+        "responseMessage": "success register account"
+    }
+}
+
+LoggingServices
+http://localhost:8282/LoggingServices/opLogAccount
+
+Success
+{
+	"opLoggingRq" : {
+		"operationName" : "opRegisterAccount",
+		"completion_status" : "success",
+		"param1" : "John",
+		"param2" : "pradhanywidityan23@gmail.com",
+		"param3" : "1234",
+		"param4" : "programmer"
+		
+	}
+}
+
+Error
+{
+	"opLoggingRq" : {
+		"operationName" : "opRegisterAccount",
+		"completion_status" : "businessError",
+		"exception_code" : "bizzErr_already_reg",
+		"exception_name" : "account already registered",
+		"param1" : "John",
+		"param2" : "pradhanywidityan23@gmail.com",
+		"param3" : "1234",
+		"param4" : "programmer"
+	}
+}
+
+ARTISAN COMMAND
+php artisan make:controller AccountLoggingController
+php artisan serve --port=[port]
+php artisan make:model Models/Account
+
+UUID
+operationName
+completion_status
+exception_code
+exception_name
+sys_creation_date
+param1..param5
+
+http://localhost:8383/ContactServices/opSendContact
+
+serviceName   : services
+operationName : operation
+contactType   : EMAIL, SMS
+contactName   : SUCCESS_REGISTER
+contactValue  : Anda berhasil melakukan registrasi
+sys_creation_date : sysdate
+
+{
+	"opSendContactRq" : {
+		"serviceName" : "AccountServices",
+		"operationName" : "opRegister",
+		"contactType" : "EMAIL",
+		"contactName" : "SUCCESS_REG",
+		"contactReceiver" : "pradhanywidityan@gmail.com"
+	}
+}
