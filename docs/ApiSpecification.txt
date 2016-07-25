@@ -50,10 +50,7 @@ Error
 	}
 }
 
-ARTISAN COMMAND
-php artisan make:controller AccountLoggingController
-php artisan serve --port=[port]
-php artisan make:model Models/Account
+
 
 UUID
 operationName
@@ -81,3 +78,8 @@ sys_creation_date : sysdate
 		"contactReceiver" : "pradhanywidityan@gmail.com"
 	}
 }
+
+ARTISAN COMMAND
+php artisan make:controller AccountLoggingController
+php artisan serve --port=[port]
+php artisan make:model Models/Account
